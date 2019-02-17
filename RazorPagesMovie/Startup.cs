@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using RazorPagesMovie.Models;
 
 namespace RazorPagesMovie
 {
@@ -33,6 +35,11 @@ namespace RazorPagesMovie
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // The RazorPagesMovieContext object handles the task of connecting to the database and mapping Movie objects to database records.
+            // The database context is registered here in the Dependency Injection container.
+            services.AddDbContext<RazorPagesMovieContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesMovieContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
