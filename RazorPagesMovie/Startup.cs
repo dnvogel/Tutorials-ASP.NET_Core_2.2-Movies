@@ -36,6 +36,8 @@ namespace RazorPagesMovie
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // The RazorPagesMovieContext object handles the task of connecting to the database and mapping Movie objects to database records.
+            // The database context is registered here in the Dependency Injection container.
             services.AddDbContext<RazorPagesMovieContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("RazorPagesMovieContext")));
         }
