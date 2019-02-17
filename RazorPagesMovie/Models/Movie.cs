@@ -6,6 +6,9 @@ namespace RazorPagesMovie.Models
 {
     public class Movie
     {
+        // NOTE: When revising Models with ASP.NET CORE and EF,
+        // be sure to build the app before touching code elswhere.
+
         public int ID { get; set; }
         public string Title { get; set; }
 
@@ -16,5 +19,6 @@ namespace RazorPagesMovie.Models
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
+        public string Rating { get; set; }
     }
 }
